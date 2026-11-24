@@ -22,16 +22,24 @@ def main():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed() #練習10-3
+        kk_rct_move_x = -1
+        kk_rct_move_y = 0
         if key_lst[pg.K_UP]: #練習10-4
-            kk_rct.move_ip((0, -1))
+            # kk_rct.move_ip((0, -1))
+            kk_rct_move_y += -1
         if key_lst[pg.K_DOWN]: #練習10-4
-            kk_rct.move_ip((0, 1))
+            # kk_rct.move_ip((0, 1))
+            kk_rct_move_y += 1
         if key_lst[pg.K_LEFT]: #練習10-4
-            kk_rct.move_ip((-1, 0))
+            # kk_rct.move_ip((-1, 0))
+            kk_rct_move_x += -1
         if key_lst[pg.K_RIGHT]: #練習10-4
-            kk_rct.move_ip((2, 0)) #課題1-2
+            # kk_rct.move_ip((2, 0)) #課題1-2
+            kk_rct_move_x += 2
 
-        kk_rct.move_ip((-1, 0)) #課題1-1
+        # kk_rct.move_ip(kk_rct_move) #課題1-1
+        kk_rct.move_ip((kk_rct_move_x, kk_rct_move_y)) #課題2
+
 
         x = tmr % 3200 #練習9
         screen.blit(bg_img, [-x, 0]) #練習2・5
